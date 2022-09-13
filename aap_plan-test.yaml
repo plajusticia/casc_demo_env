@@ -1,0 +1,20 @@
+---
+parameters:
+  orgId: 7121097
+  activationKey: "lab_developer"
+  register: true
+controller.lab.example:
+  profile: aap
+  rhnregister: true
+  rhnorg: {{ orgId }}
+  rhnactivationkey: {{ activationKey }}
+  nets:
+    - name: br0
+      ip: 192.168.1.15
+      mask: 255.255.255.0
+      gateway: 192.168.1.1
+      dns: 192.168.1.1
+  files:
+    - path: /etc/hosts
+      origin: hosts
+      permissions: 644

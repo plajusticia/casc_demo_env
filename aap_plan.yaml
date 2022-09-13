@@ -1,0 +1,91 @@
+---
+parameters:
+  orgId: 7121097
+  activationKey: "lab_developer"
+  register: true
+controller.lab.example:
+  profile: aap
+  rhnregister: {{ register }}
+  {% if register %}
+  rhnorg: {{ orgId }}
+  rhnactivationkey: {{ activationKey }}
+  {% endif %}
+  nets:
+    - name: br0
+      ip: 192.168.1.15
+      mask: 255.255.255.0
+      gateway: 192.168.1.1
+      dns: 192.168.1.1
+  files:
+    - path: /etc/hosts
+      origin: hosts
+      permissions: 644
+automationhub.lab.example:
+  profile: ahub
+  rhnregister: {{ register }}
+  {% if register %}
+  rhnorg: {{ orgId }}
+  rhnactivationkey: {{ activationKey }}
+  {% endif %}
+  nets:
+    - name: br0
+      ip: 192.168.1.16
+      mask: 255.255.255.0
+      gateway: 192.168.1.1
+      dns: 192.168.1.1
+  files:
+    - path: /etc/hosts
+      origin: hosts
+      permissions: 644
+executionnode.lab.example:
+  profile: aap
+  rhnregister: {{ register }}
+  {% if register %}
+  rhnorg: {{ orgId }}
+  rhnactivationkey: {{ activationKey }}
+  {% endif %}
+  nets:
+    - name: br0
+      ip: 192.168.1.17
+      mask: 255.255.255.0
+      gateway: 192.168.1.1
+      dns: 192.168.1.1
+  files:
+    - path: /etc/hosts
+      origin: hosts
+      permissions: 644
+database.lab.example:
+  profile: bbdd
+  rhnregister: {{ register }}
+  {% if register %}
+  rhnorg: {{ orgId }}
+  rhnactivationkey: {{ activationKey }}
+  {% endif %}
+  nets:
+    - name: br0
+      ip: 192.168.1.18
+      mask: 255.255.255.0
+      gateway: 192.168.1.1
+      dns: 192.168.1.1
+  files:
+    - path: /etc/hosts
+      origin: hosts
+      permissions: 644
+gitlab.lab.example:
+  profile: gitlab
+  rhnregister: {{ register }}
+  {% if register %}
+  rhnorg: {{ orgId }}
+  rhnactivationkey: {{ activationKey }}
+  {% endif %}
+  nets:
+    - name: br0
+      ip: 192.168.1.19
+      mask: 255.255.255.0
+      gateway: 192.168.1.1
+      dns: 192.168.1.1
+  files:
+    - path: /etc/hosts
+      origin: hosts
+      permissions: 644
+...
